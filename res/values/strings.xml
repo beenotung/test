@@ -8,5 +8,6 @@
     <string name="nfc_not_enabled">nfc is not enabled</string>
     <string name="nfc_not_supported">nfc is not supported on this device</string>
     <string name="loading">loading</string>
+    <string name="loading_path">file:///android_asset/loading.gif</string>
 
 </resources>

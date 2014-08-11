@@ -1,6 +1,7 @@
 package com.example.test;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,5 +36,7 @@ public class MainActivity extends Activity {
 	}
 	public void button1OnClicked(View view){
 		Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+		Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+		startActivity(intent);
 	}
 }
