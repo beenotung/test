@@ -1,16 +1,40 @@
 package com.example.test;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class MainActivity extends Activity {
+	private ArrayList<DrawerItem> dataList;
+	private String title, drawerTitle;
+	DrawerLayout drawerLayout;
+	ListView drawerList;
+	DrawerAdapter drawerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		// ------- Initializing -------
+		dataList = new ArrayList<DrawerItem>();
+		title = drawerTitle = (String) getTitle();
+		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		drawerList = (ListView) findViewById(R.id.left_drawer);
+		// / drawerLayout.setdrawers
+		// ------ Add Drawer Item to dataList -------
+		int amount = Integer.valueOf(getString(R.string.drawer_amount));
+		for (int i = 1; i <= amount; i++) {
+			dataList.add(new DrawerItem(R.string.drawer_0_index + i, R.drawable.drawer_0_index + i));
+		}
+		DrawerAdapter drawerAdapter = new DrawerAdapter(this, R.layout.drawer_item, dataList);
+		drawerList.setAdapter(drawerAdapter);
+		drawerList.setOnItemClickListener(new DrawerItemClickListener());
+		
 	}
 
 	@Override

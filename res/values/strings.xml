@@ -4,5 +4,12 @@
     <string name="app_name">test</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    
+     <string name="drawer_amount">3</string>
+     <string name="drawer_0_index">INDEX for drawer items</string>
+     <string name="drawer_1">item 1</string>
+     <string name="drawer_2">item 2</string>
+     <string name="drawer_3">item 3</string>
+     
 
 </resources>
