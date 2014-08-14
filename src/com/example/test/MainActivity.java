@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends Activity {
@@ -15,6 +18,7 @@ public class MainActivity extends Activity {
 	DrawerLayout drawerLayout;
 	ListView drawerList;
 	DrawerAdapter drawerAdapter;
+	ActionBarDrawerToggle actionBarDrawerToggle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,22 @@ public class MainActivity extends Activity {
 		DrawerAdapter drawerAdapter = new DrawerAdapter(this, R.layout.drawer_item, dataList);
 		drawerList.setAdapter(drawerAdapter);
 		drawerList.setOnItemClickListener(new DrawerItemClickListener());
-		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
+		actionBarDrawerToggle=new ActionBarDrawerToggle(this	, drawerLayout, R.drawable, openDrawerContentDescRes, closeDrawerContentDescRes)
+	}
+
+	private class DrawerItemClickListener implements ListView.OnItemClickListener {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			// TODO Auto-generated method stub
+			selectItem(position);
+		}
+	}
+
+	private void selectItem(int position) {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
