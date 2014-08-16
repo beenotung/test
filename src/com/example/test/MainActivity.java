@@ -4,23 +4,43 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
+	private int position = 2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		set1();
+		//changefragments();
 	}
 
-	private void set1() {
-FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+	private void changefragments() {
+		switch (position) {
+		case 1:
+			position = 2;
+			break;
+		case 2:
+			position = 1;
+			break;
+		}
+		setfragments(position);
+	}
 
-		
+	private void setfragments(int position) {
+		Bundle bundle = new Bundle();
+		bundle.putInt("position", position);
+		Fragment fragment = new Fragment();
+		fragment.setArguments(bundle);
+
+		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+		fragmentTransaction.replace(R.id.container1, fragment).commit();
+		fragmentTransaction.replace(R.id.container2, fragment).commit();
+
 	}
 
 	@Override

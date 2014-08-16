@@ -32,24 +32,26 @@
                 android:text="@string/hello_world" />
         </LinearLayout>
 
-        <FrameLayout
+        <FrameLayout            
+            android:id="@+id/container1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <fragment
                 android:id="@+id/fragment1"
-                android:name="android.app.ListFragment"
+                android:name="com.example.test.FragmentActivity"
                 android:layout_width="match_parent"
                 android:layout_height="120dp" />
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/container2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <fragment
                 android:id="@+id/fragment2"
-                android:name="android.app.ListFragment"
+                android:name="com.example.test.FragmentActivity"
                 android:layout_width="match_parent"
                 android:layout_height="120dp" />
         </FrameLayout>
